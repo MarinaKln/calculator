@@ -1,3 +1,5 @@
+// TODO: Разобраться с node.js, подключить и научиться require файлы
+
 var BUTTONS = [
     {
         id: "1",
@@ -51,13 +53,13 @@ var Calculator = React.createClass({
             output_value: ""
         };
     },
-    onClickHandler: function(e) {
+    handler: function(e) {
         this.setState ({input_value: this.state.input_value + e.target.value});
     },
-    onClickCount: function() {
+    count: function() {
         this.setState({output_value: eval(this.state.input_value)});
     },
-    onClickReset: function() {
+    reset: function() {
         this.setState({
             input_value: "",
             output_value: ""
@@ -68,15 +70,15 @@ var Calculator = React.createClass({
             <div className = "calculator">
                 <Input value = {this.state.input_value} />
                 <Output value = {this.state.output_value} />
-                <Buttons click = {this.onClickHandler} />
-                <Count_btn click = {this.onClickCount} />
-                <Reset_btn click = {this.onClickReset} />
+                <Buttons click = {this.handler} />
+                <CountBtn click = {this.count} />
+                <ResetBtn click = {this.reset} />
             </div>
         )
     }
 });
 
-var  Input = React.createClass({
+var Input = React.createClass({
     render: function() {
         return <input
             type="text"
@@ -114,7 +116,7 @@ var Buttons = React.createClass({
 
 });
 
-var Count_btn = React.createClass({
+var CountBtn = React.createClass({
     render: function() {
         return <input
             type = "button"
@@ -124,7 +126,7 @@ var Count_btn = React.createClass({
     }
 });
 
-var Reset_btn = React.createClass({
+var ResetBtn = React.createClass({
     render: function() {
         return <input
             type = "button"
