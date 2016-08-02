@@ -54,7 +54,7 @@ var Calculator = React.createClass({
         };
     },
     handler: function(e) {
-        this.setState ({input_value: this.state.input_value + e.target.value});
+        this.setState({input_value: this.state.input_value + e.target.value});
     },
     count: function() {
         this.setState({output_value: eval(this.state.input_value)});
